@@ -1,3 +1,8 @@
+## These two functions create a special matrix that can cashe the inverse and then
+## compute the inverse; if the inverse has already been calculated, the result will
+## be retrieved.
+
+## this function cashes the inverse of its own
   makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
     set <- function(y) {
@@ -12,6 +17,8 @@
          getInverse = getInverse)
   }
 
+## this function calculates the inverse, and if the inverse has already been calculated
+## it will retrieve the inverse
   cacheSolve <- function(x, ...) {
     m <- x$getInverse()
     if (!is.null(m)) {
